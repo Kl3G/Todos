@@ -1,7 +1,8 @@
 
-import { useCallback, useContext } from "react";
+import { useCallback, useContext, useMemo } from "react";
 import { TodoContext } from "./TodoContext";
 
+// 상태 관리 훅 (필터링 된 상태, 상태 변경 명령 함수{add/toggle/remove})
 export function useTodos(filter = "all") {
 
     const { todos, dispatch } = useContext(TodoContext);
@@ -21,6 +22,8 @@ export function useTodos(filter = "all") {
 
     const toggle = useCallback(id => dispatch({type: "toggle", id}), [dispatch]);
     const remove = useCallback(id => dispatch({type: "remove", id}), [dispatch]);
+
+    console.log(filterd)
 
     return {todos: filterd, add, toggle, remove, total: todos.length};
 }

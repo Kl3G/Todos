@@ -1,8 +1,9 @@
-import { useEffect, useReducer } from "react";
+import { useEffect, useReducer, createContext } from "react";
 import { todoReducer, initialState } from "./todoReducer";
 
-export const TodoContext = createContext(null); // 4. 얘는 
+export const TodoContext = createContext(null);
 
+// 그냥 상태를 전역으로 뿌리는 것 뿐.
 export function TodoProvider({children}) { // 1. 이걸 사용하면
 
     const [state, dispatch] = useReducer(todoReducer, initialState);

@@ -2,15 +2,14 @@ import { useState } from "react";
 import { useTodos } from "./useTodos"; // 나중에 삭제하자.
 // props로 받아서 사용하는 게 맞다.
 
-export default function TodoInput() {
+export default function TodoInput({onAdd}) {
 
     const [text, setText] = useState("");
-    const {add} = useTodos();
 
     const onSubmit = e => {
 
         e.preventDefault();
-        add(text); // 1. 데이터가 보내진 후.
+        onAdd(text); // 1. 데이터가 보내진 후.
         setText(""); // 2. input 초기화.
     };
 

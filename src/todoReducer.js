@@ -1,6 +1,7 @@
 
 export const initialState = { todos: [] };
 
+// 상태 변경 로직
 export function todoReducer(state, action) {
 
     switch(action.type) {
